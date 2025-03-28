@@ -1,0 +1,17 @@
+<!-- check-cookies.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Check</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.cookie = "test=1; SameSite=None; Secure";
+      const cookiesEnabled = document.cookie.indexOf('test=1') !== -1;
+      window.parent.postMessage(cookiesEnabled ? 'third-party-cookies-enabled' : 'third-party-cookies-disabled', '*');
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
